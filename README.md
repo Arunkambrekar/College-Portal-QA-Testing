@@ -37,33 +37,6 @@ Both manual testing and Cypress-based automation were used to ensure functionali
 
 ---
 
-## Folder Structure
-
-College-Portal-QA-Testing/
-│
-├── Automation testing/
-│ └── Login_module/
-│ ├── cypress/
-│ │ ├── e2e/ # Cypress test cases
-│ │ ├── fixtures/ # Test data (JSON)
-│ │ └── support/ # Helper files (POM)
-│ ├── cypress.config.js
-│ ├── package.json
-│ └── .gitignore
-│
-├── Manual testing/
-│ └── Login_module_manual_testing/
-│ ├── CollegePortal_LoginModule_Valid_TestCases.xlsx
-│ ├── CollegePortal_LoginModule_InValid_TestCases.xlsx
-│ └── Bug_Report_Jira_Screenshots/
-│
-├── README.md
-└── REFERENCES.md
-
-
-
----
-
 ## How to Run Automation Tests
 
 1. Open terminal and navigate to the project folder:
