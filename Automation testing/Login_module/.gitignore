@@ -1,0 +1,7 @@
+# Ignore node modules
+**/node_modules/
+# Ignore Cypress runtime folders
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+cypress/reports/
