@@ -1,35 +1,28 @@
-name: Cypress Tests
+name: Run Cypress Tests
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
 
 jobs:
-  cypress-run:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⬇️ Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
-      - name: 📦 Install Dependencies
+      - name: Install dependencies
         run: npm ci
+        working-directory: ./Automation_testing  # ✅ your Cypress project folder
 
-      - name: 🧪 Run Cypress Tests
+      - name: Run Cypress tests
         run: npx cypress run
-
-      - name: 📤 Upload Videos & Screenshots on Failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-artifacts
-          path: |
-            cypress/screenshots
-            cypress/videos
+        working-directory: ./Automation_testing  # ✅ same folder
