@@ -10,10 +10,6 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: Automation_testing/Login_module  # ✅ This sets the working directory for ALL steps
-
     steps:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v4
@@ -24,7 +20,9 @@ jobs:
           node-version: '18'
 
       - name: 📦 Install dependencies
+        working-directory: Automation_testing/Login_module
         run: npm install
 
-      - name: 🧪 Run Cypress Tests
+      - name: 🧪 Run Cypress
+        working-directory: Automation_testing/Login_module
         run: npx cypress run
