@@ -21,8 +21,26 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./Automation_testing  # ✅ your Cypress project folder
+        working-directory: ./Automation_testing
 
       - name: Run Cypress tests
         run: npx cypress run
-        working-directory: ./Automation_testing  # ✅ same folder
+        working-directory: ./Automation_testing  # ✅ key fix
+
+      - name: Upload Cypress HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-html-report
+          path: Automation_testing/cypress/reports/html
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: Automation_testing/cypress/screenshots
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: Automation_testing/cypress/videos
