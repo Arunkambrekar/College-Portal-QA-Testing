@@ -24,23 +24,4 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        working-directory: Automation_testing/Login_module
-        run: npx cypress run
-
-      - name: Upload Cypress HTML report
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-html-report
-          path: Automation_testing/Login_module/cypress/reports/html
-
-      - name: Upload Cypress Screenshots
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: Automation_testing/Login_module/cypress/screenshots
-
-      - name: Upload Cypress Videos
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: Automation_testing/Login_module/cypress/videos
+        run: npx cypress run --config-file=Automation_testing/Login_module/cypress.config.js
