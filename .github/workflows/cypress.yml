@@ -20,12 +20,12 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
         working-directory: Automation_testing/Login_module
+        run: npm install
 
       - name: Run Cypress tests
         working-directory: Automation_testing/Login_module
-        run: npx cypress run --config-file cypress.config.js
+        run: npx cypress run
 
       - name: Upload Cypress HTML report
         uses: actions/upload-artifact@v4
