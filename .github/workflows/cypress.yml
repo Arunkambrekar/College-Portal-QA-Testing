@@ -1,0 +1,37 @@
+name: 🔁 Cypress CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🚀 Run Cypress tests
+        run: npx cypress run
+
+      - name: 📤 Upload Cypress Videos & Screenshots (if any)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-failure-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
