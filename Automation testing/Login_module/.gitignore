@@ -1,7 +1,9 @@
-# Ignore node modules
-**/node_modules/
-# Ignore Cypress runtime folders
-cypress/downloads/
+# .gitignore
+node_modules/
+dist/
+.env
+allure-results/
 cypress/screenshots/
 cypress/videos/
+cypress/downloads/
 cypress/reports/
