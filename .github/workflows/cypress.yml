@@ -21,11 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./Automation_testing/Login_module
+        working-directory: Automation_testing/Login_module
 
       - name: Run Cypress tests
-        run: npx cypress run
-        working-directory: ./Automation_testing/Login_module
+        working-directory: Automation_testing/Login_module
+        run: npx cypress run --config-file cypress.config.js
 
       - name: Upload Cypress HTML report
         uses: actions/upload-artifact@v4
