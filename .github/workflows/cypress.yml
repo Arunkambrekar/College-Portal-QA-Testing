@@ -2,8 +2,7 @@ name: Run Cypress Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
 
 jobs:
@@ -21,26 +20,26 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./Automation_testing
+        working-directory: Automation_testing/Login_module
 
-      - name: Run Cypress tests
+      - name: Run Cypress Tests
         run: npx cypress run
-        working-directory: ./Automation_testing  # ✅ key fix
+        working-directory: Automation_testing/Login_module
 
-      - name: Upload Cypress HTML report
+      - name: Upload Cypress HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: cypress-html-report
-          path: Automation_testing/cypress/reports/html
+          path: Automation_testing/Login_module/cypress/reports/html
 
       - name: Upload Cypress Screenshots
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
-          path: Automation_testing/cypress/screenshots
+          path: Automation_testing/Login_module/cypress/screenshots
 
       - name: Upload Cypress Videos
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
-          path: Automation_testing/cypress/videos
+          path: Automation_testing/Login_module/cypress/videos
