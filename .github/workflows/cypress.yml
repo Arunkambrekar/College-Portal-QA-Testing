@@ -23,5 +23,6 @@ jobs:
         working-directory: Automation_testing/Login_module
         run: npm install
 
-      - name: Run Cypress tests
-        run: npx cypress run --config-file=Automation_testing/Login_module/cypress.config.js
+      - name: Run Cypress tests from subdirectory
+        working-directory: Automation_testing/Login_module
+        run: npx cypress run
