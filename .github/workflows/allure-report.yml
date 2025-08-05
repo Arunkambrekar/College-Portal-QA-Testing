@@ -1,0 +1,38 @@
+name: 📊 Allure Report Generator
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  allure-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧪 Run Cypress tests
+        run: npx cypress run
+
+      - name: 📥 Install Allure Commandline
+        run: npm install -g allure-commandline
+
+      - name: 📊 Generate Allure Report
+        run: allure generate allure-results --clean=true
+
+      - name: 📂 Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
