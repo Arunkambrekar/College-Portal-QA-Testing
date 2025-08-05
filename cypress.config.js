@@ -1,4 +1,3 @@
-// cypress.config.js (in the root folder)
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
