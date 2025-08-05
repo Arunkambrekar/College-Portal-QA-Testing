@@ -1,4 +1,4 @@
-name: Run Cypress Tests with Allure
+name: Cypress Tests
 
 on:
   push:
@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
 
-      - name: Install dependencies
+      - name: 📦 Install Dependencies
         run: npm ci
 
-      - name: Run Cypress tests with Allure
-        run: |
-          npx allure generate allure-results --clean
-          npx cypress run
-          npx allure generate allure-results --clean -o allure-report
+      - name: 🧪 Run Cypress Tests
+        run: npx cypress run
 
-      - name: Upload Allure Report as artifact
+      - name: 📤 Upload Videos & Screenshots on Failure
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: allure-report
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos

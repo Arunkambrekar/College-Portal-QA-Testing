@@ -6,6 +6,7 @@
     "test": "cypress run"
   },
   "devDependencies": {
+    "allure-commandline": "^2.34.1",
     "cypress": "^13.6.6"
   }
 }
