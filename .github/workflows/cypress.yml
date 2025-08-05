@@ -23,6 +23,5 @@ jobs:
         working-directory: Automation_testing/Login_module
         run: npm install
 
-      - name: 🧪 Run Cypress
-        working-directory: College-Portal-QA-Testing/Automation_testing/Login_module
-        run: npx cypress run
+      - name: Run Cypress
+        run: npx cypress run --config-file cypress.config.js
