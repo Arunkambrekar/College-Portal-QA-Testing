@@ -3,7 +3,6 @@ node_modules/
 dist/
 .env
 allure-results/
-allure-report/
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
