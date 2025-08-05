@@ -1,11 +1,11 @@
 {
+  "name": "college-portal-qa-testing",
+  "version": "1.0.0",
+  "description": "QA Testing with Cypress",
+  "scripts": {
+    "test": "cypress run"
+  },
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^2.41.2",
-    "allure-commandline": "^2.34.1"
+    "cypress": "^13.6.6"
   }
-}
-
-"scripts": {
-  "test": "cypress run",
-  "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report"
 }
